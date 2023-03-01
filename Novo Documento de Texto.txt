@@ -1,0 +1,15 @@
+SELECT
+  vp.idproduto,
+  p.nome,
+  sum(vp.quantidade) AS qtd_total
+FROM
+  venda_Produto AS vp
+JOIN
+  Produto AS p ON ( p.idproduto = vp.idproduto )
+GROUP BY
+  vp.idproduto,
+  p.nome
+ORDER BY
+  qtd_total DESC
+LIMIT
+  1;
